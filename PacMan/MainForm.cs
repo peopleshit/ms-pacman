@@ -12,16 +12,15 @@ namespace PacMan
 {
     public partial class MainForm : Form
     {
+        Game _game;
+
         public MainForm()
         {
             InitializeComponent();
-            Grid.Grid grid = new Grid.Grid();
-            for (int i = 0; i < Constants.gridX; i++)
-                for (int j = 0; j < Constants.gridY; j++)
-                {
-                    UI.DotUI dot = new UI.DotUI(grid.GameGrid[i, j], 10 + 10 * i, 10 + 10 * j);
-                    this.Controls.Add(dot);
-                }
+            _game = new Game();
+            List<UI.DotUI> grid = _game.GenerateInitialGrid();
+            foreach (UI.DotUI dot in grid)
+                this.Controls.Add(dot);
             this.Invalidate();
         }
     }

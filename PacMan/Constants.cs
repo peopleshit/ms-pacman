@@ -12,5 +12,7 @@ namespace PacMan
         internal enum Road { Straight, Turn, SpecialTurn };
         internal const int gridX = 36;
         internal const int gridY = 28;
+        internal const int borderX = 10;
+        internal const int borderY = 10;
     }
 }
