@@ -33,6 +33,24 @@ namespace PacMan.UI
 
             InitializeComponent();
 
+            switch (dot.Road)
+            {
+                case Constants.Road.Straight:
+                    this.BackColor = Color.Gray;
+                    break;
+                case Constants.Road.Turn:
+                    this.BackColor = Color.Green;
+                    break;
+                case Constants.Road.SpecialTurn:
+                    this.BackColor = Color.Yellow;
+                    break;
+                case Constants.Road.None:
+                    break;
+            }
+
+
+
+            /*
             switch (dot.State)
             {
                 case Constants.State.Empty:
@@ -48,7 +66,7 @@ namespace PacMan.UI
                     this.BackColor = Color.Blue;
                     break;
             }
-
+            */
             Location = new Point(_y, _x);
         }
 
