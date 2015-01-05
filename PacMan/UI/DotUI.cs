@@ -32,7 +32,7 @@ namespace PacMan.UI
             _y = 10 * y + Constants.borderY;
 
             InitializeComponent();
-
+            //*
             switch (dot.Road)
             {
                 case Constants.Road.Straight:
@@ -44,11 +44,14 @@ namespace PacMan.UI
                 case Constants.Road.SpecialTurn:
                     this.BackColor = Color.Yellow;
                     break;
+                case Constants.Road.ExitTurn:
+                    this.BackColor = Color.Orange;
+                    break;
                 case Constants.Road.None:
                     break;
             }
 
-
+            //*/
 
             /*
             switch (dot.State)
@@ -70,7 +73,7 @@ namespace PacMan.UI
             Location = new Point(_y, _x);
         }
 
-        public void UpdateDot(Constants.State state)
+        internal void UpdateDot(Constants.State state)
         {
             switch (state)
             {

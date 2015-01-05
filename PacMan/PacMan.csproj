@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\Move.cs" />
     <Compile Include="Constants.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Grid\Dot.cs" />
