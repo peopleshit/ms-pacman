@@ -13,6 +13,7 @@ namespace PacMan.AI
         Dot _origin;
         Dot _destination;
         Monsters.Monster _monster;
+        PacMan _pacman;
         
         internal Grid.Dot Destination
         {
@@ -31,6 +32,13 @@ namespace PacMan.AI
             _origin = origin;
             _destination = destination;
             _monster = monster;
+        }
+
+        internal Move(Grid.Dot origin, Grid.Dot destination, PacMan pacman)
+        {
+            _origin = origin;
+            _destination = destination;
+            _pacman = pacman;
         }
     }
 }

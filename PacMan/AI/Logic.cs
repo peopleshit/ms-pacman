@@ -18,7 +18,7 @@ namespace PacMan.AI
             _grid = grid;
         }
 
-        internal Dot[] LookAround(Dot dot)
+        private Dot[] GetDotsAround(Dot dot)
         {
             int x = dot.DotUI.GridX;
             int y = dot.DotUI.GridY;
@@ -26,9 +26,9 @@ namespace PacMan.AI
 
         }
 
-        internal Dot FindWay(Dot origin, Dot target, Constants.Direction direction)
+        internal Dot GetWay(Dot origin, Dot target, Constants.Direction direction)
         {
-            Dot[] directions = LookAround(origin);
+            Dot[] directions = GetDotsAround(origin);
             double min = 1000;
             int x = -1, y = -1;
             Dot toReturn = new Dot();
@@ -138,6 +138,35 @@ namespace PacMan.AI
             for (int i = 0; i < possible.Count; i++)
                 toReturn[i] = possible[i];
             return toReturn;
+        }
+
+        internal Dot GoStraight(Dot origin, Constants.Direction direction)
+        {
+            if (origin.DotUI.GridX == 17 && (origin.DotUI.GridY < 1 || origin.DotUI.GridY > 26))
+            {
+                if (direction == Constants.Direction.Right && origin.DotUI.GridY == 27)
+                    return _grid.GameGrid[17, 0];
+                else if (direction == Constants.Direction.Left && origin.DotUI.GridY == 0)
+                    return _grid.GameGrid[17, 27];
+                else if (direction == Constants.Direction.Left && origin.DotUI.GridY == 27)
+                    return _grid.GameGrid[17, 26];
+                else if (direction == Constants.Direction.Right && origin.DotUI.GridY == 0)
+                    return _grid.GameGrid[17, 1];
+                else
+                    throw new ArgumentOutOfRangeException("Holy crap! I'm trapped under ice!");
+            }
+            else
+            {
+                Dot[] temp = ExcludeWalls(ExcludeOppositeDirection(GetDotsAround(origin), direction, false));
+                return temp[0];
+            }
+        }
+
+        internal Dot GetRandomWay(Dot origin, Constants.Direction direction)
+        {
+            Dot[] directions = ExcludeWalls(ExcludeOppositeDirection(GetDotsAround(origin), direction, false));
+            Random rand = new Random();
+            return directions[rand.Next(0, directions.Length)];
         }
     }
 }

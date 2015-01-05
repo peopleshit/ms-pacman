@@ -27,7 +27,7 @@ namespace PacMan
             this.Invalidate();
             this.Visible = true;
             //AI.Logic logic = new AI.Logic(_game.Grid);
-            //Grid.Dot t = logic.FindWay(_game.Grid.GameGrid[8, 21], _game.Grid.GameGrid[11, 24], Constants.Direction.Right);
+            //Grid.Dot t = logic.GoStraight(_game.Grid.GameGrid[17, 27], Constants.Direction.Left);
             //MessageBox.Show(t.DotUI.GridX + " " + t.DotUI.GridY);
         }
     }
