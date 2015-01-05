@@ -15,6 +15,18 @@ namespace PacMan.UI
     {
         int _x;
         int _y;
+        int _gridX;
+        int _gridY;
+
+        internal int GridY
+        {
+            get { return _gridY; }
+        }
+
+        internal int GridX
+        {
+            get { return _gridX; }
+        }
 
         internal int Y
         {
@@ -28,6 +40,8 @@ namespace PacMan.UI
 
         internal DotUI(Dot dot, int x, int y)
         {
+            _gridX = x;
+            _gridY = y;
             _x = 10 * x + Constants.borderX;
             _y = 10 * y + Constants.borderY;
 

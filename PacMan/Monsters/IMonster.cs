@@ -8,6 +8,8 @@ namespace PacMan.Monsters
 {
     interface IMonster
     {
-
+        void Runaway();
+        void Follow();
+        void Panic();
     }
 }

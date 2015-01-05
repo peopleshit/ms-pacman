@@ -40,6 +40,9 @@ namespace PacMan.Grid
             }
         }
 
+        internal Dot()
+        { }
+
         internal Dot(Constants.State state, int x, int y)
         {
             _state = state;
