@@ -405,8 +405,207 @@ namespace PacMan.Grid
                         else
                             _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
                     }
+
+                    else if (i == 23)
+                    {
+                        if (j == 0)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 12 && j < 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j == 27)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else
+                        {
+                            if (j == 6)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 9)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 18)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 21)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        }
+                    }
+
+                    else if (i == 24)
+                    {
+                        if (j == 1)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 6)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 12)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 21)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 26)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 25)
+                    {
+                        if (j == 1)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 6)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 12)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 21)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 26)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 26)
+                    {
+                        if (j == 0)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 3 && j < 6)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 21 && j < 24)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j == 27)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else
+                        {
+                            if (j == 1)
+                                _gameGrid[i, j] = new Dot(Constants.State.Energizer, Constants.Road.Straight, i, j);
+                            else if (j == 6)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 9)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 12)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.SpecialTurn, i, j);
+                            else if (j == 15)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.SpecialTurn, i, j);
+                            else if (j == 18)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 21)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 26)
+                                _gameGrid[i, j] = new Dot(Constants.State.Energizer, Constants.Road.Straight, i, j);
+                            else
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        }
+                    }
+
+                    else if (i == 27)
+                    {
+                        if (j == 3)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 6)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 9)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 18)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 21)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 24)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 28)
+                    {
+                        if (j == 3)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 6)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 9)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 18)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 21)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 24)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 29)
+                    {
+                        if (j == 0)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 6 && j < 9)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 12 && j < 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j > 18 && j < 21)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j == 27)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else
+                        {
+                            if (j == 3)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 24)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        }
+                    }
+
+                    else if (i == 30)
+                    {
+                        if (j == 1)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 12)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 26)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 31)
+                    {
+                        if (j == 1)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 12)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 15)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else if (j == 26)
+                            _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        else
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                    }
+
+                    else if (i == 32)
+                    {
+                        if (j == 0)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else if (j == 27)
+                            _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
+                        else
+                        {
+                            if (j == 12)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else if (j == 15)
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Turn, i, j);
+                            else
+                                _gameGrid[i, j] = new Dot(Constants.State.Food, Constants.Road.Straight, i, j);
+                        }
+                    }
+
+                    else if (i == 33)
+                        _gameGrid[i, j] = new Dot(Constants.State.Wall, i, j);
                     else
-                        _gameGrid[i, j] = new Dot(Constants.State.Bonus, i, j);
+                        _gameGrid[i, j] = new Dot(Constants.State.Empty, i, j);
                 }
         }
 

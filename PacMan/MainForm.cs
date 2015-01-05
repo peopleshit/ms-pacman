@@ -16,12 +16,16 @@ namespace PacMan
 
         public MainForm()
         {
+            this.Visible = false;
             InitializeComponent();
+            this.Height = 500;
+            this.Width = 500;
             _game = new Game();
             List<UI.DotUI> grid = _game.GenerateInitialGrid();
             foreach (UI.DotUI dot in grid)
                 this.Controls.Add(dot);
             this.Invalidate();
+            this.Visible = true;
         }
     }
 }
