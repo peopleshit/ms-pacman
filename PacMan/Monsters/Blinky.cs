@@ -9,16 +9,22 @@ namespace PacMan.Monsters
 {
     internal class Blinky : Monster
     {
-        internal Blinky(Dot runawayDot, Dot currentDot)
-            : base(runawayDot, currentDot)
+        internal Blinky(Dot runawayDot, Dot currentDot, PacMan pacman)
+            : base(runawayDot, currentDot, pacman)
         {
             
         }
 
-        internal Blinky(Dot runawayDot, Dot currentDot, Dot targetDot)
-            : base(runawayDot, currentDot, targetDot)
+        internal Blinky(Dot runawayDot, Dot currentDot, Dot targetDot, PacMan pacman)
+            : base(runawayDot, currentDot, targetDot, pacman)
         {
  
+        }
+
+        public override void Follow()
+        {
+            base.Follow();
+            TargetDot = _pacman.CurrentDot;
         }
     }
 }

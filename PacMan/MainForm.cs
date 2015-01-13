@@ -14,6 +14,8 @@ namespace PacMan
     {
         Game _game;
 
+        Timer timer = new Timer();
+
         public MainForm()
         {
             this.Visible = false;
@@ -24,11 +26,22 @@ namespace PacMan
             List<UI.DotUI> grid = _game.GenerateInitialGrid();
             foreach (UI.DotUI dot in grid)
                 this.Controls.Add(dot);
-            this.Invalidate();
             this.Visible = true;
+            //_game.MakeMove();
             //AI.Logic logic = new AI.Logic(_game.Grid);
-            //Grid.Dot t = logic.GoStraight(_game.Grid.GameGrid[17, 27], Constants.Direction.Left);
+            //Grid.Dot t = logic.GoStraight(_game.Grid.GameGrid[4, 1], Constants.Direction.Left);
             //MessageBox.Show(t.DotUI.GridX + " " + t.DotUI.GridY);
+            timer.Interval = 5000;
+            timer.Tick += timer_Tick;
+            timer.Start();
+            
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            _game.Grid.OpenGate();
+            timer.Stop();
+            MessageBox.Show("");
         }
     }
 }

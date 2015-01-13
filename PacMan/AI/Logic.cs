@@ -12,6 +12,12 @@ namespace PacMan.AI
     internal class Logic
     {
         Grid.Grid _grid;
+        Constants.Direction changedDirection;
+
+        public Constants.Direction ChangedDirection
+        {
+            get { return changedDirection; }
+        }
 
         internal Logic(Grid.Grid grid)
         {
@@ -80,7 +86,7 @@ namespace PacMan.AI
                 return toReturn;
             }
             else
-                throw new ArgumentOutOfRangeException("Fuck! I'm trapped!");
+                throw new ArgumentOutOfRangeException("Fuck! Where are my yellow bricks?");
         }
 
         private Dot[] ExcludeOppositeDirection(Dot[] directions, Constants.Direction direction, bool isSpecialTurn)
@@ -142,6 +148,8 @@ namespace PacMan.AI
 
         internal Dot GoStraight(Dot origin, Constants.Direction direction)
         {
+            changedDirection = Constants.Direction.None;
+            Constants.Direction newDirection = Constants.Direction.None;
             if (origin.DotUI.GridX == 17 && (origin.DotUI.GridY < 1 || origin.DotUI.GridY > 26))
             {
                 if (direction == Constants.Direction.Right && origin.DotUI.GridY == 27)
@@ -158,8 +166,42 @@ namespace PacMan.AI
             else
             {
                 Dot[] temp = ExcludeWalls(ExcludeOppositeDirection(GetDotsAround(origin), direction, false));
+                switch (direction)
+                {
+                    case Constants.Direction.Up:
+                        if (_grid.GameGrid[origin.DotUI.GridX - 1, origin.DotUI.GridY] != temp[0])
+                            newDirection = ChangeStraightDirection(origin, temp[0]);
+                        break;
+                    case Constants.Direction.Down:
+                        if (_grid.GameGrid[origin.DotUI.GridX + 1, origin.DotUI.GridY] != temp[0])
+                            newDirection = ChangeStraightDirection(origin, temp[0]);
+                        break;
+                    case Constants.Direction.Left:
+                        if (_grid.GameGrid[origin.DotUI.GridX, origin.DotUI.GridY - 1] != temp[0])
+                            newDirection = ChangeStraightDirection(origin, temp[0]);
+                        break;
+                    case Constants.Direction.Right:
+                        if (_grid.GameGrid[origin.DotUI.GridX, origin.DotUI.GridY + 1] != temp[0])
+                            newDirection = ChangeStraightDirection(origin, temp[0]);
+                        break;
+                }
+                changedDirection = newDirection;
                 return temp[0];
             }
+        }
+
+        private Constants.Direction ChangeStraightDirection(Dot origin, Dot destination)
+        {
+            if (_grid.GameGrid[origin.DotUI.GridX + 1, origin.DotUI.GridY] == destination)
+                return Constants.Direction.Up;
+            else if (_grid.GameGrid[origin.DotUI.GridX - 1, origin.DotUI.GridY] == destination)
+                return Constants.Direction.Down;
+            else if (_grid.GameGrid[origin.DotUI.GridX, origin.DotUI.GridY - 1] == destination)
+                return Constants.Direction.Left;
+            else if (_grid.GameGrid[origin.DotUI.GridX, origin.DotUI.GridY + 1] == destination)
+                return Constants.Direction.Right;
+            else
+                throw new ArgumentOutOfRangeException("There are walls everywhere!");
         }
 
         internal Dot GetRandomWay(Dot origin, Constants.Direction direction)

@@ -46,7 +46,7 @@ namespace PacMan.UI
             _y = 10 * y + Constants.borderY;
 
             InitializeComponent();
-            //*
+            /*
             switch (dot.Road)
             {
                 case Constants.Road.Straight:
@@ -65,9 +65,9 @@ namespace PacMan.UI
                     break;
             }
 
-            //*/
+            */
 
-            /*
+            //*
             switch (dot.State)
             {
                 case Constants.State.Empty:
@@ -83,7 +83,7 @@ namespace PacMan.UI
                     this.BackColor = Color.Blue;
                     break;
             }
-            */
+            //*/
             Location = new Point(_y, _x);
         }
 

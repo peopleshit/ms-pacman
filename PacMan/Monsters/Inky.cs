@@ -9,14 +9,14 @@ namespace PacMan.Monsters
 {
     class Inky : Monster
     {
-        internal Inky(Dot runawayDot, Dot currentDot)
-            : base(runawayDot, currentDot)
+        internal Inky(Dot runawayDot, Dot currentDot, PacMan pacman)
+            : base(runawayDot, currentDot, pacman)
         {
             
         }
 
-        internal Inky(Dot runawayDot, Dot currentDot, Dot targetDot)
-            : base(runawayDot, currentDot, targetDot)
+        internal Inky(Dot runawayDot, Dot currentDot, Dot targetDot, PacMan pacman)
+            : base(runawayDot, currentDot, targetDot, pacman)
         {
  
         }

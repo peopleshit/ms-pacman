@@ -9,11 +9,12 @@ namespace PacMan.Monsters
 {
     internal class Monster : IMonster
     {
-        Dot _runawayDot;
-        Dot _currentDot;
-        Dot _targetDot;
-        Constants.Direction _direction;
-        Constants.Behavior _behaviour;
+        protected PacMan _pacman;
+        protected Dot _runawayDot;
+        protected Dot _currentDot;
+        protected Dot _targetDot;
+        protected Constants.Direction _direction;
+        protected Constants.Behavior _behaviour;
 
         internal Constants.Behavior Behaviour
         {
@@ -47,17 +48,19 @@ namespace PacMan.Monsters
         internal Monster()
         { }
 
-        internal Monster(Dot runawayDot, Dot currentDot)
+        internal Monster(Dot runawayDot, Dot currentDot, PacMan pacman)
         {
             _runawayDot = runawayDot;
             _currentDot = currentDot;
+            _pacman = pacman;
         }
 
-        internal Monster(Dot runawayDot, Dot currentDot, Dot targetDot)
+        internal Monster(Dot runawayDot, Dot currentDot, Dot targetDot, PacMan pacman)
         {
             _runawayDot = runawayDot;
             _currentDot = currentDot;
             _targetDot = targetDot;
+            _pacman = pacman;
         }
 
         public virtual void Runaway()
@@ -67,7 +70,7 @@ namespace PacMan.Monsters
 
         public virtual void Follow()
         {
-            throw new NotImplementedException();
+
         }
 
         public void Panic()

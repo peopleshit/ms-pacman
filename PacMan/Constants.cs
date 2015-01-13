@@ -10,7 +10,7 @@ namespace PacMan
     {
         internal enum State { Monster, PacMan, Food, Empty, Bonus, Energizer, Wall };
         internal enum Road { None, Straight, Turn, SpecialTurn, ExitTurn };
-        internal enum Direction { Up, Down, Left, Right };
+        internal enum Direction { None, Up, Down, Left, Right };
         internal enum Status { Active, Inactive, Dead }
         internal enum Behavior { Chase, Scatter, Frightened };
         internal const int gridX = 36;

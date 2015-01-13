@@ -30,10 +30,10 @@ namespace PacMan
             _rand = new Random();
             _monsters = new Monster[] 
             {
-                new Blinky(_grid.GameGrid[0, 25], _grid.GameGrid[14, _rand.Next(13, 15)]),
-                new Pinky(_grid.GameGrid[0, 2], _grid.GameGrid[17, _rand.Next(13, 15)]),
-                new Inky(_grid.GameGrid[35, 0], _grid.GameGrid[17, 12]),
-                new Clyde(_grid.GameGrid[35, 27], _grid.GameGrid[17, 15])
+                new Blinky(_grid.GameGrid[0, 25], _grid.GameGrid[14, _rand.Next(13, 15)], _pacman),
+                new Pinky(_grid.GameGrid[0, 2], _grid.GameGrid[17, _rand.Next(13, 15)], _pacman),
+                new Inky(_grid.GameGrid[35, 0], _grid.GameGrid[17, 12], _pacman),
+                new Clyde(_grid.GameGrid[35, 27], _grid.GameGrid[17, 15], _pacman)
             };
             _pacman = new PacMan(_grid);
         }
@@ -51,13 +51,18 @@ namespace PacMan
 
         internal void MakeMove()
         {
+            
             Move[] currentMove = new Move[5];
-            currentMove[0] = new Move(_pacman.CurrentDot, _pacman.SetTarget(), _pacman);
+            //currentMove[0] = new Move(_pacman.CurrentDot, _pacman.SetTarget(), _pacman);
             currentMove[1] = new Move(_monsters[0].CurrentDot, 
                 _monsters[0].CurrentDot.Road == Constants.Road.Straight ? 
                 _logic.GoStraight(_monsters[0].CurrentDot, _monsters[0].Direction) : _monsters[0].Behaviour == Constants.Behavior.Frightened ?
                 _logic.GetRandomWay(_monsters[0].CurrentDot, _monsters[0].Direction) : _logic.GetWay(_monsters[0].CurrentDot, _monsters[0].TargetDot, _monsters[0].Direction),
                 _monsters[0]);
+            if (_logic.ChangedDirection != Constants.Direction.None)
+            {
+                _monsters[1].Direction = _logic.ChangedDirection;
+            }
             currentMove[2] = new Move(_monsters[1].CurrentDot,
                 _monsters[1].CurrentDot.Road == Constants.Road.Straight ?
                 _logic.GoStraight(_monsters[1].CurrentDot, _monsters[1].Direction) : _monsters[1].Behaviour == Constants.Behavior.Frightened ?
